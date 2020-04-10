@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>bresenham算法 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="在实验课上用自己的算法画直线被 diss 效率低花了半天时间看了下 Bresenham 算法真 🐮🍺总结一下其中的精妙之处Bresebham 直线生成算法的基本原理是，每次在最大位移方向上走一步，而另一个方向是走步还是不走步取决于误差项的判别。声明 k 为斜率在 0≤k&lt;1 的情况下，假设当前点是 P($x_1$,$y_1$)，则下一个点在 $P_u$($x_1$+1,$y_1$+1)与">
+<meta property="og:type" content="article">
+<meta property="og:title" content="bresenham算法">
+<meta property="og:url" content="http://yoursite.com/2018/09/17/bresenham/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="在实验课上用自己的算法画直线被 diss 效率低花了半天时间看了下 Bresenham 算法真 🐮🍺总结一下其中的精妙之处Bresebham 直线生成算法的基本原理是，每次在最大位移方向上走一步，而另一个方向是走步还是不走步取决于误差项的判别。声明 k 为斜率在 0≤k&lt;1 的情况下，假设当前点是 P($x_1$,$y_1$)，则下一个点在 $P_u$($x_1$+1,$y_1$+1)与">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2018-09-17T14:16:44.000Z">
+<meta property="article:modified_time" content="2020-04-10T14:52:38.483Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="c++">
+<meta property="article:tag" content="Computer Graphics">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-bresenham" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/09/17/bresenham/" class="article-date">
+  <time datetime="2018-09-17T14:16:44.000Z" itemprop="datePublished">2018-09-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      bresenham算法
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在实验课上用自己的算法画直线被 diss 效率低<br>花了半天时间看了下 Bresenham 算法真 🐮🍺<br>总结一下其中的精妙之处<br>Bresebham 直线生成算法的基本原理是，每次在最大位移方向上走一步，而另一个方向是走步还是不走步取决于误差项的判别。<br>声明 k 为斜率<br>在 0≤k&lt;1 的情况下，假设当前点是 P($x_1$,$y_1$)，则下一个点在 $P_u$($x_1$+1,$y_1$+1)与 $P_d$($x_1$+1,$y_1$)中选一。<br>以 M 表示 $P_u$ 与 $P_d$ 的中点，即 M($x_1$+1,$y_1$+0.5)。设 Q 是理想直线与 x=$x_i$+1 的交点；<br>显然，若 M 在 Q 的下方，则 Pu($x_1$+1,$y_1$+1)离直线较近，应取为下一个像素；否则应取 $P_d$($x_1$+1,$y_1$)。<br>理解并不难 主要在于实现<br>依据该算法的原理基本能够实现<br>窝先试着自己写了一会<br>如果要实现各个方向的二维直线绘制<br>需要考虑多种情况 写出来很不美观<br>教材上给出了更好的解决方案：<br>同样以 0≤k&lt;1 为例<br>每次选取下个点时理想直线的 y 坐标都步进 k 个单位长度<br>累加值即为误差项 $d_i$<br>当 $d_i$ 大于 0.5 时选取 Pu 否则选取 $P_d$ 并使 $d_i$-1<br>令 $e_i$=$d_i$-0.5<br>则 $e_i$&gt;0 时选取 Pu 否则选取 $P_d$<br>经过改进，算法的效率大幅提升<br>但其中在计算斜率与误差项时会用到小数和除法<br>并且下一步的选择只与误差项的符号有关<br>因此可以进一步改进：<br>可知 $e_i$ 的值由三种值组成：$e_i$=-1/2(初始值)+(n 个)y/x(步进值)-(m 个)1(调整值)…<br>同乘 2x 即得 2x<em>$e_i$=-x+(n 个)2</em>y-(m 个)2*x….<br>这样即可得到仅由整数构成的算法<br>以上仅为对 0≤k&lt;1 情况下的讨论<br>其余的情况类似<br>附一段杂乱无章的代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">point&lt;Type&gt; now_point &#x3D; start;</span><br><span class="line">  point&lt;Type&gt; e_step, point_step;</span><br><span class="line">  e_step.x &#x3D; abs(step.x);</span><br><span class="line">  e_step.y &#x3D; abs(step.y);</span><br><span class="line">  glBegin(GL_POINTS);</span><br><span class="line">  if (step.x &#x3D;&#x3D; 0 &amp;&amp; step.y &#x3D;&#x3D; 0) &#x2F;&#x2F;No Step</span><br><span class="line">    return;</span><br><span class="line">  point_step.x &#x3D; (step.x &#x3D;&#x3D; 0) ? 1 : step.x &#x2F; e_step.x;</span><br><span class="line">  point_step.y &#x3D; (step.y &#x3D;&#x3D; 0) ? 1 : step.y &#x2F; e_step.y;</span><br><span class="line">  if (step.x &#x3D;&#x3D; 0) &#123;   &#x2F;&#x2F; k is endless</span><br><span class="line">    do&#123;</span><br><span class="line">      glVertex2i(now_point.x, now_point.y);</span><br><span class="line">      now_point.y +&#x3D; point_step.y;</span><br><span class="line">    &#125; while (now_point.y !&#x3D; end.y);</span><br><span class="line">  &#125;</span><br><span class="line">  else if (step.y &#x3D;&#x3D; 0) &#123;   &#x2F;&#x2F;k is zero</span><br><span class="line">    do &#123;</span><br><span class="line">      glVertex2i(now_point.x, now_point.y);</span><br><span class="line">      now_point.x +&#x3D; point_step.x;</span><br><span class="line">    &#125; while (now_point.x !&#x3D; end.x);</span><br><span class="line">  &#125;</span><br><span class="line">  else if (abs(step.y &#x2F; step.x) &#x3D;&#x3D; 0) &#123;   &#x2F;&#x2F; |k| &lt; 1</span><br><span class="line">    Type e &#x3D; -e_step.x;</span><br><span class="line">    do &#123;</span><br><span class="line">      glVertex2i(now_point.x, now_point.y);</span><br><span class="line">      e +&#x3D; 2 * e_step.y;</span><br><span class="line">      now_point.x +&#x3D; point_step.x;</span><br><span class="line">      if (e &gt; 0) &#123;</span><br><span class="line">        now_point.y +&#x3D; point_step.y;</span><br><span class="line">        e -&#x3D; 2 * e_step.x;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125; while (now_point.x !&#x3D; end.x);</span><br><span class="line">  &#125;</span><br><span class="line">  else &#123;    &#x2F;&#x2F; |k| &gt;&#x3D; 1</span><br><span class="line">    Type e &#x3D; -e_step.y;</span><br><span class="line">    do &#123;</span><br><span class="line">      glVertex2i(now_point.x, now_point.y);</span><br><span class="line">      e +&#x3D; 2 * e_step.x;</span><br><span class="line">      now_point.y +&#x3D; point_step.y;</span><br><span class="line">      if (e &gt; 0) &#123;</span><br><span class="line">        now_point.x +&#x3D; point_step.x;</span><br><span class="line">        e -&#x3D; 2 * e_step.y;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125; while (now_point.y !&#x3D; end.y);</span><br><span class="line">  &#125;</span><br><span class="line">  glEnd();</span><br><span class="line">  glFlush();</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/09/17/bresenham/" data-id="ck8ub7nbw0002qg9iddcy1zfj" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Computer-Graphics/" rel="tag">Computer Graphics</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/c/" rel="tag">c++</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/07/12/c++_erase/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          c++ erase的注意事项
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Computer-Graphics/" rel="tag">Computer Graphics</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c/" rel="tag">c++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/compete/" rel="tag">compete</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/string/" rel="tag">string</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Computer-Graphics/" style="font-size: 10px;">Computer Graphics</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/c/" style="font-size: 20px;">c++</a> <a href="/tags/compete/" style="font-size: 15px;">compete</a> <a href="/tags/string/" style="font-size: 10px;">string</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/04/10/Hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">Hexo 搭建个人博客</a>
+          </li>
+        
+          <li>
+            <a href="/2019/07/12/c-split-getline/">c++实现split(通过getline)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/07/12/%E5%8F%8D%E8%BD%AC%E5%AD%97%E7%AC%A6%E4%B8%B2/">反转字符串(杂谈)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/07/12/%E4%B9%9D%E5%AE%AB%E6%A0%BC%E8%BE%93%E5%85%A5%E6%B3%95-%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%A4%84%E7%90%86%E6%96%B9%E6%B3%95/">九宫格输入法-字符串处理方法</a>
+          </li>
+        
+          <li>
+            <a href="/2019/07/12/c++_erase/">c++ erase的注意事项</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
