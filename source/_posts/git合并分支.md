@@ -14,4 +14,4 @@ tags:
 - 将重置后的 master 分支强制推送更新
   > `git push origin master --force`
 
-> 这个方法重点在于用 reset 将 master 分支直接指向 dev
+这个方法重点在于用 reset 将 master 分支直接指向 dev
