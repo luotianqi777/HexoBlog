@@ -2,8 +2,8 @@
 title: c++实现split(通过getline)
 date: 2019-07-12 21:51:53
 tags:
-  - c++
-  - compete
+  - C++
+  - Compete
 ---
 
 众所周知  

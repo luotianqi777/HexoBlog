@@ -2,7 +2,7 @@
 title: bresenham算法
 date: 2018-09-17 22:16:44
 tags:
-  - c++
+  - C++
   - Computer Graphics
 ---
 
