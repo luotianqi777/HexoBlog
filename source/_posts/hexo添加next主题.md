@@ -2,7 +2,7 @@
 title: hexo添加next主题
 date: 2020-04-11 19:31:37
 tags:
-  - hexo
+  - Hexo
 ---
 
 ## 进入 bolg 目录
