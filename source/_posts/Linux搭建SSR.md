@@ -74,52 +74,49 @@ tags:
 
 ### Linux
 
-> 下载 [ssr 安装脚本](/download/ssr)
+- 下载 [ssr 安装脚本](/download/ssr)
 
-放到到`/usr/local/bin/`下，可以随时通过命令开启
+- 放到到`/usr/local/bin/`下，可以随时通过命令开启
 
-> `sudo mv ssr /usr/local/bin`
+  > `sudo mv ssr /usr/local/bin`
 
-安装 ssr 客户端
+- 安装 ssr 客户端
 
-> `sudo ssr install`
+  > `sudo ssr install`
 
-进行 ssr 配置
+- 进行 ssr 配置
 
-> `sudo ssr config`
+  > `sudo ssr config`
 
-配置信息填安装服务器时的信息，主要有:
+- 配置信息填安装服务器时的信息，主要有:
 
-| 字段        | 含义         |
-| :---------- | :----------- |
-| server      | 服务器 IP    |
-| server_port | 服务器端口号 |
-| password    | 密码         |
-| method      | 加密方式     |
-| protocol    | 协议         |
-| obfs        | 混淆         |
+  | 字段        | 含义         |
+  | :---------- | :----------- |
+  | server      | 服务器 IP    |
+  | server_port | 服务器端口号 |
+  | password    | 密码         |
+  | method      | 加密方式     |
+  | protocol    | 协议         |
+  | obfs        | 混淆         |
 
-需要启动时
+- 需要启动时
 
-> `sudo ssr start`
+  > `sudo ssr start`
 
-需要停止时
+- 需要停止时
 
-> `sudo ssr stop`
+  > `sudo ssr stop`
 
-查看更多指令
-
-> `sudo ssr help`
+- 查看更多指令
+  > `sudo ssr help`
 
 ### windows
 
-> <https://github.com/shadowsocksr-backup/shadowsocksr-csharp/releases>
+- 下载[windows 客户端](https://github.com/shadowsocksr-backup/shadowsocksr-csharp/releases)
 
-很友好的图形界面  
- 可以通过 ssr 链接进行配置
+- 通过 ssr 链接进行配置
 
 ### android
 
-> <https://github.com/shadowsocksr-backup/shadowsocksr-android/releases>
-
-通过 ssr 链接或 ssr 二维码进行配置
+- 下载[android 客户端](https://github.com/shadowsocksr-backup/shadowsocksr-android/releases)
+- 通过 ssr 链接或 ssr 二维码进行配置

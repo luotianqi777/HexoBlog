@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="填坑日记">
 <meta property="og:description" content="购买 VPS选择 VPS 服务商推荐 Vultr 可以随时更换主机现在主机贵了，能用做 VPS 的起步 $5&#x2F;month充值最少$10 选择服务器 位置 人在大陆的话选日本的主机比较快，但据说也容易被封  价格 价位选最便宜的就好，不过必须支持 IPv4  系统 推荐CentOS 7 x64据说更高版本可能失败，我也没试过只为转发数据而已，高版本也没什么意义   为 VPS 安装 SSR 服务SS">
 <meta property="article:published_time" content="2020-04-11T06:21:31.000Z">
-<meta property="article:modified_time" content="2020-04-11T08:38:30.720Z">
+<meta property="article:modified_time" content="2020-04-11T10:29:30.501Z">
 <meta property="article:author" content="骆天奇">
 <meta property="article:tag" content="Linux">
 <meta property="article:tag" content="SSR">
@@ -352,22 +352,25 @@
 </li>
 </ul>
 <p>中途会有一些确认操作<br>安装完成后会给出 SSR 配置信息，配置信息在配置客户端时会用到，可以先保存到一个文本里<br>还会给出 SSR 链接和 SSR 二维码，可以方便的配置 windows 和 android 的 SSR 客户端</p>
-<h2 id="下载-SSR-客户端"><a href="#下载-SSR-客户端" class="headerlink" title="下载 SSR 客户端"></a>下载 SSR 客户端</h2><h3 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h3><blockquote>
-<p>下载 <a href="/download/ssr">ssr 安装脚本</a></p>
-</blockquote>
-<p>放到到<code>/usr/local/bin/</code>下，可以随时通过命令开启</p>
+<h2 id="下载-SSR-客户端"><a href="#下载-SSR-客户端" class="headerlink" title="下载 SSR 客户端"></a>下载 SSR 客户端</h2><h3 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h3><ul>
+<li><p>下载 <a href="/download/ssr">ssr 安装脚本</a></p>
+</li>
+<li><p>放到到<code>/usr/local/bin/</code>下，可以随时通过命令开启</p>
 <blockquote>
 <p><code>sudo mv ssr /usr/local/bin</code></p>
 </blockquote>
-<p>安装 ssr 客户端</p>
+</li>
+<li><p>安装 ssr 客户端</p>
 <blockquote>
 <p><code>sudo ssr install</code></p>
 </blockquote>
-<p>进行 ssr 配置</p>
+</li>
+<li><p>进行 ssr 配置</p>
 <blockquote>
 <p><code>sudo ssr config</code></p>
 </blockquote>
-<p>配置信息填安装服务器时的信息，主要有:</p>
+</li>
+<li><p>配置信息填安装服务器时的信息，主要有:</p>
 <table>
 <thead>
 <tr>
@@ -400,26 +403,33 @@
 <td align="left">混淆</td>
 </tr>
 </tbody></table>
-<p>需要启动时</p>
+</li>
+<li><p>需要启动时</p>
 <blockquote>
 <p><code>sudo ssr start</code></p>
 </blockquote>
-<p>需要停止时</p>
+</li>
+<li><p>需要停止时</p>
 <blockquote>
 <p><code>sudo ssr stop</code></p>
 </blockquote>
-<p>查看更多指令</p>
+</li>
+<li><p>查看更多指令</p>
 <blockquote>
 <p><code>sudo ssr help</code></p>
 </blockquote>
-<h3 id="windows"><a href="#windows" class="headerlink" title="windows"></a>windows</h3><blockquote>
-<p><a href="https://github.com/shadowsocksr-backup/shadowsocksr-csharp/releases" target="_blank" rel="noopener">https://github.com/shadowsocksr-backup/shadowsocksr-csharp/releases</a></p>
-</blockquote>
-<p>很友好的图形界面<br> 可以通过 ssr 链接进行配置</p>
-<h3 id="android"><a href="#android" class="headerlink" title="android"></a>android</h3><blockquote>
-<p><a href="https://github.com/shadowsocksr-backup/shadowsocksr-android/releases" target="_blank" rel="noopener">https://github.com/shadowsocksr-backup/shadowsocksr-android/releases</a></p>
-</blockquote>
-<p>通过 ssr 链接或 ssr 二维码进行配置</p>
+</li>
+</ul>
+<h3 id="windows"><a href="#windows" class="headerlink" title="windows"></a>windows</h3><ul>
+<li><p>下载<a href="https://github.com/shadowsocksr-backup/shadowsocksr-csharp/releases" target="_blank" rel="noopener">windows 客户端</a></p>
+</li>
+<li><p>通过 ssr 链接进行配置</p>
+</li>
+</ul>
+<h3 id="android"><a href="#android" class="headerlink" title="android"></a>android</h3><ul>
+<li>下载<a href="https://github.com/shadowsocksr-backup/shadowsocksr-android/releases" target="_blank" rel="noopener">android 客户端</a></li>
+<li>通过 ssr 链接或 ssr 二维码进行配置</li>
+</ul>
 
       
     </div>
