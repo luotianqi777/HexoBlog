@@ -101,11 +101,6 @@ tags:
   搜索 `scrollpercent`，值改为`true`
 
   ```
-  # Back to top in sidebar (only for Pisces | Gemini).
-  # 将 top 按钮放在侧边栏 (仅支持 Pisces | Gemini)
-  b2t: true
-
-  # Scroll percent label in b2t button.
   scrollpercent: true
   ```
 
