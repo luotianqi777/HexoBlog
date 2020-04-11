@@ -5,9 +5,9 @@ tags:
   - Hexo
 ---
 
-## 进入 bolg 目录
+## 进入 blog 目录
 
-> `cd bolg_folder`
+> `cd blog_folder`
 
 ## 下载 Next 主题
 
