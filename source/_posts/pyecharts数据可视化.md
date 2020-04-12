@@ -1,23 +1,31 @@
 ---
-title: pyecharts渲染图片
+title: pyecharts数据可视化
 date: 2020-04-12 19:05:45
 tags:
   - Python
 ---
 
-## 渲染方式
+## `pyecharts` 安装
+
+`pip(pip3) install pyecharts`
+
+## `pyecharts` 使用
+
+### [官方教程](https://pyecharts.org/#/zh-cn/quickstart)
+
+## `pyecharts` 渲染图片
 
 pyecharts 提供了 `selenium`, `phantomjs` 和 `pyppeteer` 三种方式。
 
 笔者只用过`phantomjs`，其他的可以参考[官方教程](https://pyecharts.org/#/zh-cn/render_images)
 
-## 引入
+### 引入
 
 ```
 from pyecharts.render import make_snapshot
 ```
 
-## API
+### API
 
 ```
 def make_snapshot(
@@ -45,7 +53,7 @@ def make_snapshot(
 )
 ```
 
-## 安装
+### 安装
 
 `snapshot-phantomjs` 是 `pyecharts` + `phantomjs` 渲染图片的扩展，需要先安装 `phantomjs`，安装方法可以参照[官网](hantomjs.org/download.html)
 
