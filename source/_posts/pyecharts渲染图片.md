@@ -47,7 +47,7 @@ def make_snapshot(
 
 ## 安装
 
-`snapshot-phantomjs` 是 `pyecharts` + `phantomjs` 渲染图片的扩展，需要先安装 `phantomjs`，安装方法可以参照[官网](phantomjs.org/download.html)
+`snapshot-phantomjs` 是 `pyecharts` + `phantomjs` 渲染图片的扩展，需要先安装 `phantomjs`，安装方法可以参照[官网](hantomjs.org/download.html)
 
 - 安装 `phantomjs`
 
