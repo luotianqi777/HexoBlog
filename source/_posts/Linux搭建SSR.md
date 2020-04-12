@@ -34,7 +34,7 @@ tags:
 
 ### SSH 连接 VPS
 
-> `ssh root@server_ip`
+`ssh root@server_ip`
 
 能连上就输入服务商给的密码，不能就再部署一个，最后把旧的删除
 
@@ -42,15 +42,15 @@ tags:
 
 测试能否访问到需要访问的网站
 
-> `ping google.com`
+`ping google.com`
 
 效果满意则安装 SSR 服务
 
-> `wget -N --no-check-certificate https://raw.githubusercontent.com/luvvien/ssr-install-shellscript/master/ssr.sh`
+`wget -N --no-check-certificate https://raw.githubusercontent.com/luvvien/ssr-install-shellscript/master/ssr.sh`
 
 ### 开始安装程序
 
-> `chmod +x ssr.sh && bash ssr.sh`
+`chmod +x ssr.sh && bash ssr.sh`
 
 开始安装(括号内为我的选择)
 
@@ -78,15 +78,15 @@ tags:
 
 - 放到到`/usr/local/bin/`下，可以随时通过命令开启
 
-  > `sudo mv ssr /usr/local/bin`
+  `sudo mv ssr /usr/local/bin`
 
 - 安装 ssr 客户端
 
-  > `sudo ssr install`
+  `sudo ssr install`
 
 - 进行 ssr 配置
 
-  > `sudo ssr config`
+  `sudo ssr config`
 
 - 配置信息填安装服务器时的信息，主要有:
 
@@ -101,14 +101,14 @@ tags:
 
 - 需要启动时
 
-  > `sudo ssr start`
+  `sudo ssr start`
 
 - 需要停止时
 
-  > `sudo ssr stop`
+  `sudo ssr stop`
 
 - 查看更多指令
-  > `sudo ssr help`
+  `sudo ssr help`
 
 ### windows
 

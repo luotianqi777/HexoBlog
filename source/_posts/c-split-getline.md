@@ -12,7 +12,9 @@ c++中 string 没有自带的 split 函数(亏你还是老大哥)
 本人不再赘述  
 近几日翻 C++API 时发现了 getline 一个有趣的方法
 
-`istream& getline (istream& is, string& str, char delim);`
+```
+istream& getline (istream& is, string& str, char delim);
+```
 
 第一个参数是一个输入流，第二个参数是一个对字符串的常引用，第三个参数是分割符  
 在读入时遇到分割符则停止  

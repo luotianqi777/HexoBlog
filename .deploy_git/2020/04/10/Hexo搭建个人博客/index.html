@@ -79,14 +79,14 @@
 
 
 
-<meta name="description" content="安装 git 安装 git  sudo apt install git-core   第一次使用要先设置 git 的用户名和邮箱  git config --global user.name &#39;your_name&#39;git config --global user.email &#39;your_email@example.com&#39;    安装 nodejs, npm 建议通">
+<meta name="description" content="安装 git 安装 git sudo apt install git-core  第一次使用要先设置 git 的用户名和邮箱 git config --global user.name &#39;your_name&#39;git config --global user.email &#39;your_email@example.com&#39;   安装 nodejs, npm 建议通过官网安">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo 搭建个人博客">
 <meta property="og:url" content="http://yoursite.com/2020/04/10/Hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/index.html">
 <meta property="og:site_name" content="填坑日记">
-<meta property="og:description" content="安装 git 安装 git  sudo apt install git-core   第一次使用要先设置 git 的用户名和邮箱  git config --global user.name &#39;your_name&#39;git config --global user.email &#39;your_email@example.com&#39;    安装 nodejs, npm 建议通">
+<meta property="og:description" content="安装 git 安装 git sudo apt install git-core  第一次使用要先设置 git 的用户名和邮箱 git config --global user.name &#39;your_name&#39;git config --global user.email &#39;your_email@example.com&#39;   安装 nodejs, npm 建议通过官网安">
 <meta property="article:published_time" content="2020-04-10T08:18:29.000Z">
-<meta property="article:modified_time" content="2020-04-11T10:25:32.727Z">
+<meta property="article:modified_time" content="2020-04-12T11:23:49.360Z">
 <meta property="article:author" content="骆天奇">
 <meta property="article:tag" content="Linux">
 <meta property="article:tag" content="Hexo">
@@ -302,14 +302,10 @@
       
         <h2 id="安装-git"><a href="#安装-git" class="headerlink" title="安装 git"></a>安装 git</h2><ul>
 <li><p>安装 git</p>
-<blockquote>
 <p><code>sudo apt install git-core</code></p>
-</blockquote>
 </li>
 <li><p>第一次使用要先设置 git 的用户名和邮箱</p>
-<blockquote>
 <p><code>git config --global user.name &#39;your_name&#39;</code><br><code>git config --global user.email &#39;your_email@example.com&#39;</code></p>
-</blockquote>
 </li>
 </ul>
 <h2 id="安装-nodejs-npm"><a href="#安装-nodejs-npm" class="headerlink" title="安装 nodejs, npm"></a>安装 nodejs, npm</h2><ul>
@@ -327,69 +323,49 @@
 </ul>
 <h2 id="添加-SSH-公匙"><a href="#添加-SSH-公匙" class="headerlink" title="添加 SSH 公匙"></a>添加 SSH 公匙</h2><ul>
 <li><p>创建 SSH key</p>
-<blockquote>
 <p><code>ssh-keygen -C &quot;your_email@example.com&quot;</code></p>
-</blockquote>
 <p>接下来几次询问密码<br>建议连续回车<br>默认将 key 存到用户文件下<code>~/.ssh/</code>中</p>
 </li>
 <li><p>将<code>~/.ssh/id_rsa.pub</code>中的内容粘贴到 github 的 SSH key 中</p>
 </li>
 <li><p>可以通过下指令测试链接</p>
-<blockquote>
 <p><code>ssh -T git@github.com</code></p>
-</blockquote>
 </li>
 </ul>
 <h2 id="安装-hexo"><a href="#安装-hexo" class="headerlink" title="安装 hexo"></a>安装 hexo</h2><ul>
 <li><p>hexo 本体安装</p>
-<blockquote>
 <p><code>npm install -g hexo-cli</code></p>
-</blockquote>
 <ul>
 <li><p>速度慢或无法下载建议换源</p>
 <ul>
-<li>淘宝源:<blockquote>
+<li><p>淘宝源:</p>
 <p><code>npm config set registry https://registry.npm.taobao.org</code></p>
-</blockquote>
 </li>
-<li>cnpmjs 源:<blockquote>
+<li><p>cnpmjs 源:</p>
 <p><code>npm config set registry http://r.cnpmjs.org</code></p>
-</blockquote>
 </li>
 </ul>
 </li>
 <li><p>或者用 cnpm</p>
-<blockquote>
 <p><code>npm install -g cnpm --registry=https://registry.npm.taobao.org</code></p>
-</blockquote>
 <p>之后用 cnpm 安装</p>
-<blockquote>
 <p><code>cnpm install hexo</code></p>
-</blockquote>
 </li>
 <li><p>还有可能是代理的问题</p>
-<blockquote>
 <p><code>npm config set proxy null</code><br><code>npm config set https-proxy null</code></p>
-</blockquote>
 </li>
 <li><p>windows 还有可能是系统环境变量的问题</p>
-<blockquote>
 <p>检查环境变量<code>HTTP_PROXY</code>和<code>HTTPS_PROXY</code></p>
-</blockquote>
 </li>
 </ul>
 </li>
 <li><p>使用 git 远程部署需要安装</p>
-<blockquote>
 <p><code>npm install hexo-deployer-git --save</code></p>
-</blockquote>
 </li>
 </ul>
 <h2 id="Hexo-设置"><a href="#Hexo-设置" class="headerlink" title="Hexo 设置"></a>Hexo 设置</h2><ul>
 <li><p>初始化 hexo</p>
-<blockquote>
 <p><code>hexo init &lt;filename&gt;</code></p>
-</blockquote>
 <p>会从 github 上 clone 一个 blog 模版到 <em>filename</em></p>
 </li>
 <li><p>远程部署设置</p>
@@ -404,31 +380,21 @@
 </ul>
 <h2 id="hexo-常用操作"><a href="#hexo-常用操作" class="headerlink" title="hexo 常用操作"></a>hexo 常用操作</h2><ul>
 <li><p>生成新网页</p>
-<blockquote>
 <p><code>hexo n [location]&lt;filename&gt;</code></p>
-</blockquote>
 <p>会在<em>source<em>的</em>location</em>(默认为 post)中生成<code>filename.md</code>文件</p>
 </li>
 <li><p>生成新页面</p>
-<blockquote>
 <p><code>hexo n page &lt;pagename&gt;</code></p>
-</blockquote>
 <p>会在<em>source</em>中创建<em>pagename</em>文件夹</p>
 </li>
 <li><p>生成静态网页</p>
-<blockquote>
 <p><code>hexo g</code></p>
-</blockquote>
 </li>
 <li><p>部署博客到 远程</p>
-<blockquote>
 <p><code>hexo d</code></p>
-</blockquote>
 </li>
 <li><p>本地预览博客</p>
-<blockquote>
 <p><code>hexo s</code></p>
-</blockquote>
 <p>可以在<a href="http://localhost:4000/" target="_blank" rel="noopener">http://localhost:4000/</a>中预览博客</p>
 </li>
 </ul>
@@ -557,7 +523,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -570,7 +536,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

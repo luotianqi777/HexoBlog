@@ -7,11 +7,11 @@ tags:
 
 ## 进入 blog 目录
 
-> `cd blog_folder`
+`cd blog_folder`
 
 ## 下载 Next 主题
 
-> `git clone https://github.com/iissnan/hexo-theme-next themes/next`
+`git clone https://github.com/iissnan/hexo-theme-next themes/next`
 
 ## 修改`/_config.yml`
 
@@ -63,7 +63,7 @@ tags:
 
 - 创建菜单项对应文件目录，以`tags`为例
 
-  > `hexo n page tags`
+  `hexo n page tags`
 
   编辑`/source/tags/index.md`，`type`属性的值写为`tags`
 

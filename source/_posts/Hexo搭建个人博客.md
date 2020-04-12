@@ -10,11 +10,12 @@ tags:
 
 - 安装 git
 
-  > `sudo apt install git-core`
+  `sudo apt install git-core`
 
 - 第一次使用要先设置 git 的用户名和邮箱
-  > `git config --global user.name 'your_name'`  
-  > `git config --global user.email 'your_email@example.com'`
+
+  `git config --global user.name 'your_name'`  
+  `git config --global user.email 'your_email@example.com'`
 
 ## 安装 nodejs, npm
 
@@ -34,7 +35,7 @@ tags:
 
 - 创建 SSH key
 
-  > `ssh-keygen -C "your_email@example.com"`
+  `ssh-keygen -C "your_email@example.com"`
 
   接下来几次询问密码  
   建议连续回车  
@@ -43,43 +44,51 @@ tags:
 - 将`~/.ssh/id_rsa.pub`中的内容粘贴到 github 的 SSH key 中
 
 - 可以通过下指令测试链接
-  > `ssh -T git@github.com`
+
+  `ssh -T git@github.com`
 
 ## 安装 hexo
 
 - hexo 本体安装
 
-  > `npm install -g hexo-cli`
+  `npm install -g hexo-cli`
 
   - 速度慢或无法下载建议换源
 
     - 淘宝源:
-      > `npm config set registry https://registry.npm.taobao.org`
+
+      `npm config set registry https://registry.npm.taobao.org`
+
     - cnpmjs 源:
-      > `npm config set registry http://r.cnpmjs.org`
+
+      `npm config set registry http://r.cnpmjs.org`
 
   - 或者用 cnpm
 
-    > `npm install -g cnpm --registry=https://registry.npm.taobao.org`
+    `npm install -g cnpm --registry=https://registry.npm.taobao.org`
 
     之后用 cnpm 安装
 
-    > `cnpm install hexo`
+    `cnpm install hexo`
 
   - 还有可能是代理的问题
-    > `npm config set proxy null`  
-    > `npm config set https-proxy null`
+
+    `npm config set proxy null`  
+    `npm config set https-proxy null`
+
   - windows 还有可能是系统环境变量的问题
-    > 检查环境变量`HTTP_PROXY`和`HTTPS_PROXY`
+
+    检查环境变量`HTTP_PROXY`和`HTTPS_PROXY`
 
 - 使用 git 远程部署需要安装
-  > `npm install hexo-deployer-git --save`
+
+  `npm install hexo-deployer-git --save`
 
 ## Hexo 设置
 
 - 初始化 hexo
 
-  > `hexo init <filename>`
+  `hexo init <filename>`
 
   会从 github 上 clone 一个 blog 模版到 _filename_
 
@@ -111,22 +120,26 @@ tags:
 
 - 生成新网页
 
-  > `hexo n [location]<filename>`
+  `hexo n [location]<filename>`
 
   会在*source*的*location*(默认为 post)中生成`filename.md`文件
 
 - 生成新页面
 
-  > `hexo n page <pagename>`
+  `hexo n page <pagename>`
 
   会在*source*中创建*pagename*文件夹
 
 - 生成静态网页
-  > `hexo g`
+
+  `hexo g`
+
 - 部署博客到 远程
-  > `hexo d`
+
+  `hexo d`
+
 - 本地预览博客
 
-  > `hexo s`
+  `hexo s`
 
   可以在<http://localhost:4000/>中预览博客
