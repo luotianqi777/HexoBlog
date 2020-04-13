@@ -1,5 +1,5 @@
 ---
-title: hexo添加next主题
+title: Hexo添加next主题
 date: 2020-04-11 19:31:37
 tags:
   - Hexo
@@ -115,3 +115,29 @@ tags:
   ```
 
   ||后为图标，图标必须为 [FontAwesome](https://fontawesome.com/) 网站中存在的图标的名字
+
+## 分页显示问题
+
+**新的 Hexo 版本应该不会出现该问题**
+
+例如下图
+![](/images/hexo添加next主题/1.png)
+
+Github 有相关 [issues](https://github.com/hexojs/hexo/issues/3794)
+
+编辑`themes/next/layout/_partials/pagination.swig`
+
+```
+{%- if page.prev or page.next %}
+  <nav class="pagination">
+    {{
+      paginator({
+        prev_text: '<i class="fa fa-angle-left" aria-label="' + __('accessibility.prev_page') + '"></i>',
+        next_text: '<i class="fa fa-angle-right" aria-label="' + __('accessibility.next_page') + '"></i>',
+        mid_size : 1,
+        escape   : false
+      })
+    }}
+  </nav>
+{%- endif %}
+```
