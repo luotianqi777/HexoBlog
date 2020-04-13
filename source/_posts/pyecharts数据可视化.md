@@ -5,15 +5,15 @@ tags:
   - Python
 ---
 
-## `pyecharts` 安装
+## pyecharts 安装
 
 `pip(pip3) install pyecharts`
 
-## `pyecharts` 使用
+## pyecharts 使用
 
 ### [官方教程](https://pyecharts.org/#/zh-cn/quickstart)
 
-## `pyecharts` 渲染图片
+## pyecharts 渲染图片
 
 pyecharts 提供了 `selenium`, `phantomjs` 和 `pyppeteer` 三种方式。
 
@@ -53,13 +53,16 @@ def make_snapshot(
 )
 ```
 
-### 安装
+### snapshot-phantomjs 安装
 
 `snapshot-phantomjs` 是 `pyecharts` + `phantomjs` 渲染图片的扩展，需要先安装 `phantomjs`，安装方法可以参照[官网](hantomjs.org/download.html)
 
 - 安装 `phantomjs`
 
   `sudo apt install phantomjs`
+
+  > 或者下载 nodejs ，通过 npm 安装  
+  > `npm install -g phantomjs-prebuilt`
 
 - 安装 `snapshot-phantomjs`
 
