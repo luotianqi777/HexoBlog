@@ -93,3 +93,23 @@ def make_snapshot(
 
   make_snapshot(snapshot, bar_chart().render(), "bar0.png")
   ```
+
+## pyecharts 处理 pandas 数据图像不显示
+
+原因在于数据没有被 `list` 处理
+
+- 错误示例
+
+  ```
+  line_e.add_xaxis(data.index)
+  line_e.add_yaxis(series_name='error', y_axis=data['y_data'])
+  ```
+
+- 正确示例
+
+  ```
+  line_r.add_xaxis(data.index.tolist())
+  line_r.add_yaxis(series_name='right', y_axis=data['y_data'].tolist())
+  ```
+
+  对数据进行`.list()`将其列表化就可以显示图像了
