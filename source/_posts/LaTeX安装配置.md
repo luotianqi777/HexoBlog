@@ -32,7 +32,7 @@ tags:
      `Ctrl`+`Shift`+`P` 搜索 `Latex workshop` 可以查看插件命令
 
   2. 安装 Latex Preview(文档预览，根据个人喜好选择)
-  3. 设置中搜索 `latex workshop json` 加入如下内容
+  3. 设置中搜索 `latex workshop json` 加入如下内容( xelatex + bib 配置)
      ```
      // LaTeX
      // 保存自动编译
@@ -52,16 +52,6 @@ tags:
              ]
          },
          {
-             "name": "pdflatex",
-             "command": "pdflatex",
-             "args": [
-                 "-synctex=1",
-                 "-interaction=nonstopmode",
-                 "-file-line-error",
-                 "%DOCFILE%"
-             ]
-         },
-         {
              "name": "bibtex",
              "command": "bibtex",
              "args": [
@@ -71,18 +61,6 @@ tags:
      ],
      "latex-workshop.latex.recipes": [
          {
-             "name": "xelatex",
-             "tools": [
-                 "xelatex"
-             ],
-         },
-         {
-             "name": "pdflatex",
-             "tools": [
-                 "pdflatex"
-             ]
-         },
-         {
              "name": "xe->bib->xe->xe",
              "tools": [
                  "xelatex",
@@ -91,14 +69,5 @@ tags:
                  "xelatex"
              ]
          },
-         {
-             "name": "pdf->bib->pdf->pdf",
-             "tools": [
-                 "pdflatex",
-                 "bibtex",
-                 "pdflatex",
-                 "pdflatex"
-             ]
-         }
      ],
      ```
