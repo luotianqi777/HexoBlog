@@ -3,6 +3,7 @@ title: LaTeX安装配置
 date: 2020-04-15 12:38:22
 tags:
   - LaTeX
+  - VSCode
 ---
 
 ## LaTeX 环境安装
@@ -19,13 +20,41 @@ tags:
 
 [一份(不太)简短的 LaTeX 介绍](/download/lshort-zh-cn.pdf)
 
-## IDE 配置
+## IDE 安装配置
 
-- TexStudio
-  - Options > Configure
-  - General > Language 选择语言
-  - Build 下调整编译设置(中文文档推荐 xelatex)
-- VSCode
+### TexStudio
+
+> 优点：安装方便，操作方便，免费， 跨平台
+
+> 缺点：UI 丑陋，格式化不方便
+
+- 安装
+
+  - Windows
+
+    [官网](https://www.texstudio.org/)
+
+  - Linux
+
+    `sudo apt install studio`
+
+- 配置
+
+  1. Options > Configure
+  2. General > Language 选择语言
+  3. Build 下调整编译设置(中文文档推荐 xelatex)
+
+### VSCode
+
+> 优点：安装简单，UI 漂亮，插件多，维护积极，开源免费，跨平台
+
+> 缺点：配置较为繁琐
+
+- 安装
+
+  [官网](https://code.visualstudio.com/Download)
+
+- 配置
 
   1. 安装 latex workshop(提供良好的开发环境)
 
@@ -33,6 +62,7 @@ tags:
 
   2. 安装 Latex Preview(文档预览，根据个人喜好选择)
   3. 设置中搜索 `latex workshop json` 加入如下内容( xelatex + bib 配置)
+
      ```
      // LaTeX
      // 保存自动编译
