@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="填坑日记">
 <meta property="og:description" content="pyecharts 安装pip(pip3) install pyecharts pyecharts 使用官方教程pyecharts 渲染图片pyecharts 提供了 selenium, phantomjs 和 pyppeteer 三种方式。 笔者只用过phantomjs，其他的可以参考官方教程 引入1from pyecharts.render import make_snapshot  API1">
 <meta property="article:published_time" content="2020-04-12T11:05:45.000Z">
-<meta property="article:modified_time" content="2020-04-14T03:25:44.393Z">
+<meta property="article:modified_time" content="2020-04-16T17:51:46.448Z">
 <meta property="article:author" content="骆天奇">
 <meta property="article:tag" content="Python">
 <meta name="twitter:card" content="summary">
@@ -327,7 +327,7 @@
 
 </li>
 </ul>
-<h2 id="pyecharts-处理-pandas-数据图像不显示"><a href="#pyecharts-处理-pandas-数据图像不显示" class="headerlink" title="pyecharts 处理 pandas 数据图像不显示"></a>pyecharts 处理 pandas 数据图像不显示</h2><p>原因在于数据没有被 <code>list</code> 处理</p>
+<h2 id="使用-pyecharts-过程中遇到的问题"><a href="#使用-pyecharts-过程中遇到的问题" class="headerlink" title="使用 pyecharts 过程中遇到的问题"></a>使用 pyecharts 过程中遇到的问题</h2><h3 id="pyecharts-处理-pandas-数据图像不显示"><a href="#pyecharts-处理-pandas-数据图像不显示" class="headerlink" title="pyecharts 处理 pandas 数据图像不显示"></a>pyecharts 处理 pandas 数据图像不显示</h3><p>原因在于数据没有被 <code>list</code> 处理</p>
 <ul>
 <li><p>错误示例</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">line_e.add_xaxis(data.index)</span><br><span class="line">line_e.add_yaxis(series_name&#x3D;&#39;error&#39;, y_axis&#x3D;data[&#39;y_data&#39;])</span><br></pre></td></tr></table></figure>
@@ -337,6 +337,10 @@
 
 <p>对数据进行<code>.list()</code>将其列表化就可以显示图像了</p>
 </li>
+</ul>
+<h3 id="make-snapshot-报错"><a href="#make-snapshot-报错" class="headerlink" title="make_snapshot 报错"></a>make_snapshot 报错</h3><ul>
+<li>渲染引擎未安装</li>
+<li>render 保存路径不能含有中文</li>
 </ul>
 
       
@@ -461,7 +465,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-count">15</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -523,7 +527,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#pyecharts-安装"><span class="nav-number">1.</span> <span class="nav-text">pyecharts 安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#pyecharts-使用"><span class="nav-number">2.</span> <span class="nav-text">pyecharts 使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#官方教程"><span class="nav-number">2.1.</span> <span class="nav-text">官方教程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#pyecharts-渲染图片"><span class="nav-number">3.</span> <span class="nav-text">pyecharts 渲染图片</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#引入"><span class="nav-number">3.1.</span> <span class="nav-text">引入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#API"><span class="nav-number">3.2.</span> <span class="nav-text">API</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#snapshot-phantomjs-安装"><span class="nav-number">3.3.</span> <span class="nav-text">snapshot-phantomjs 安装</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#pyecharts-处理-pandas-数据图像不显示"><span class="nav-number">4.</span> <span class="nav-text">pyecharts 处理 pandas 数据图像不显示</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#pyecharts-安装"><span class="nav-number">1.</span> <span class="nav-text">pyecharts 安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#pyecharts-使用"><span class="nav-number">2.</span> <span class="nav-text">pyecharts 使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#官方教程"><span class="nav-number">2.1.</span> <span class="nav-text">官方教程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#pyecharts-渲染图片"><span class="nav-number">3.</span> <span class="nav-text">pyecharts 渲染图片</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#引入"><span class="nav-number">3.1.</span> <span class="nav-text">引入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#API"><span class="nav-number">3.2.</span> <span class="nav-text">API</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#snapshot-phantomjs-安装"><span class="nav-number">3.3.</span> <span class="nav-text">snapshot-phantomjs 安装</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用-pyecharts-过程中遇到的问题"><span class="nav-number">4.</span> <span class="nav-text">使用 pyecharts 过程中遇到的问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#pyecharts-处理-pandas-数据图像不显示"><span class="nav-number">4.1.</span> <span class="nav-text">pyecharts 处理 pandas 数据图像不显示</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#make-snapshot-报错"><span class="nav-number">4.2.</span> <span class="nav-text">make_snapshot 报错</span></a></li></ol></li></ol></div>
             
 
           </div>

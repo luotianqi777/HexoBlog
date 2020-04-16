@@ -94,7 +94,9 @@ def make_snapshot(
   make_snapshot(snapshot, bar_chart().render(), "bar0.png")
   ```
 
-## pyecharts 处理 pandas 数据图像不显示
+## 使用 pyecharts 过程中遇到的问题
+
+### pyecharts 处理 pandas 数据图像不显示
 
 原因在于数据没有被 `list` 处理
 
@@ -113,3 +115,8 @@ def make_snapshot(
   ```
 
   对数据进行`.list()`将其列表化就可以显示图像了
+
+### make_snapshot 报错
+
+- 渲染引擎未安装
+- render 保存路径不能含有中文

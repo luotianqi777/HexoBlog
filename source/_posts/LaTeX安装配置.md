@@ -124,3 +124,21 @@ tags:
      "*.fdb_latexmk",
      ],
      ```
+
+## LaTeX 使用过程中遇到的问题
+
+### 警告：Font shape `OT1/cmss/m/n' in size <4> not available
+
+```
+\usepackage{lmodern}
+```
+
+或者
+
+```
+\usepackage{anyfontsize}
+```
+
+### 警告：引用未标号
+
+bibtex 编译后再进行**两次** xelatex 编译
