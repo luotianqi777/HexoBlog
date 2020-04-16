@@ -100,4 +100,27 @@ tags:
              ]
          },
      ],
+     // 自动清理不需要的中间文件
+     "latex-workshop.latex.autoClean.run": "onBuilt",
+     "latex-workshop.latex.clean.fileTypes": [
+     "*.aux",
+     "*.bbl",
+     "*.blg",
+     "*.idx",
+     "*.ind",
+     "*.lof",
+     "*.lot",
+     "*.out",
+     "*.toc",
+     "*.acn",
+     "*.acr",
+     "*.alg",
+     "*.glg",
+     "*.glo",
+     "*.gls",
+     "*.ist",
+     "*.fls",
+     "*.log",
+     "*.fdb_latexmk",
+     ],
      ```
