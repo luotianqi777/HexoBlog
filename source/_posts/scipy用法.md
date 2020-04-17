@@ -24,16 +24,43 @@ tags:
 
 ### 用法
 
+以 SIR 模型为例
+
 ```
 import numpy as np
+import pandas as pd
 from scipy.integrate import odeint
+from matplotlib import pyplot as plt
 
-def diff(y, x):
-  # dy/dx = x
-	return np.array(x)
-# x 范围
-x = np.linspace(0, 10, 100)
-# 设初值为0 此时y为一个数组，元素为不同x对应的y值
-y = odeint(diff, 0, x)
-# 也可以直接y = odeint(lambda y, x: x, 0, x)
+
+# 微分方程
+def diff(y, t, s2ip, i2rp):
+    s, i, r = y
+    s2i = i * s * s2ip
+    i2r = i * i2rp
+    ds = -s2i
+    di = s2i - i2r
+    dr = i2r
+    return [ds, di, dr]
+
+# 自变量范围
+t = np.arange(0, 90)
+# 求解
+y = odeint(
+    # 微分方程
+    func=diff,
+    # y初值
+    y0=(1, 0.01, 0),
+    # 自变量
+    t=t,
+    # 其他参数(此处为s2ip,i2rp)
+    args=(0.4, 0.2)
+    )
+
+# 返回数据为积分后的数值序列
+data = pd.DataFrame(y)
+data.columns = ['S', 'I', 'R']
+data.plot()
+plt.show()
+
 ```
