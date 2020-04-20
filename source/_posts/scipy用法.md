@@ -64,3 +64,28 @@ data.plot()
 plt.show()
 
 ```
+
+## 优化模型，拟合数据
+
+### minimize
+
+```
+# 定义损失函数
+# 返回一个值用来量化与期望的大小
+def lose_fun(
+    x0, # 变量值
+    args, # 其他参数(常数值)
+)
+```
+
+```
+# 优化函数
+# 返回值res.x取得优化后的参数
+def minimize(
+    fun, # 损失函数/目标函数
+    x0, # 变量的初始值猜测值
+    args, # lose_fun的其他参数
+    method, # 优化方法
+    bounds， # 参数范围[(min,max),(min,max),...]
+)
+```
