@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="填坑日记">
 <meta property="og:description" content="LaTeX 环境安装 Windows 官网 下载安装映像  Linux sudo apt install texlive   LaTeX 使用一份(不太)简短的 LaTeX 介绍 IDE 安装配置TexStudio 优点：安装方便，操作方便，免费， 跨平台   缺点：UI 丑陋，格式化不方便   安装  Windows 官网  Linux sudo apt install studio    配置">
 <meta property="article:published_time" content="2020-04-15T04:38:22.000Z">
-<meta property="article:modified_time" content="2020-04-16T17:56:26.984Z">
+<meta property="article:modified_time" content="2020-04-21T13:58:13.960Z">
 <meta property="article:author" content="骆天奇">
 <meta property="article:tag" content="LaTeX">
 <meta property="article:tag" content="VSCode">
@@ -363,7 +363,19 @@
 <p>或者</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\usepackage&#123;anyfontsize&#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="警告：引用未标号"><a href="#警告：引用未标号" class="headerlink" title="警告：引用未标号"></a>警告：引用未标号</h3><p>bibtex 编译后再进行<strong>两次</strong> xelatex 编译</p>
+<h3 id="警告：引用未标号"><a href="#警告：引用未标号" class="headerlink" title="警告：引用未标号"></a>警告：引用未标号</h3><blockquote>
+<p>bibtex 编译后再进行<strong>两次</strong> xelatex 编译</p>
+</blockquote>
+<h3 id="错误：There’s-no-line-here-to-end"><a href="#错误：There’s-no-line-here-to-end" class="headerlink" title="错误：There’s no line here to end"></a>错误：There’s no line here to end</h3><p>错误的使用换行符</p>
+<blockquote>
+<p><a href="https://www.overleaf.com/learn/latex/Errors/LaTeX_Error:_There%27s_no_line_here_to_end" target="_blank" rel="noopener">https://www.overleaf.com/learn/latex/Errors/LaTeX_Error:_There%27s_no_line_here_to_end</a></p>
+</blockquote>
+<h3 id="警告：Underfull-Overfull-hbox-message"><a href="#警告：Underfull-Overfull-hbox-message" class="headerlink" title="警告：Underfull(Overfull) \hbox message"></a>警告：Underfull(Overfull) \hbox message</h3><blockquote>
+<p>underfull 是说该处排版内容太稀疏了（badness 10000)是 TeX 衡量排版效果好不好的一个尺度</p>
+</blockquote>
+<blockquote>
+<p>Overfull 则是说该处内容太多，超出了设定的印刷范围，这多数是由于系统无法找到合适的自动换行点造成的</p>
+</blockquote>
 
       
     </div>
@@ -551,7 +563,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#LaTeX-环境安装"><span class="nav-number">1.</span> <span class="nav-text">LaTeX 环境安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LaTeX-使用"><span class="nav-number">2.</span> <span class="nav-text">LaTeX 使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IDE-安装配置"><span class="nav-number">3.</span> <span class="nav-text">IDE 安装配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#TexStudio"><span class="nav-number">3.1.</span> <span class="nav-text">TexStudio</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#VSCode"><span class="nav-number">3.2.</span> <span class="nav-text">VSCode</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LaTeX-使用过程中遇到的问题"><span class="nav-number">4.</span> <span class="nav-text">LaTeX 使用过程中遇到的问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#警告：Font-shape-OT1-cmss-m-n’-in-size-lt-4-gt-not-available"><span class="nav-number">4.1.</span> <span class="nav-text">警告：Font shape &#96;OT1&#x2F;cmss&#x2F;m&#x2F;n’ in size &lt;4&gt; not available</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#警告：引用未标号"><span class="nav-number">4.2.</span> <span class="nav-text">警告：引用未标号</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#LaTeX-环境安装"><span class="nav-number">1.</span> <span class="nav-text">LaTeX 环境安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LaTeX-使用"><span class="nav-number">2.</span> <span class="nav-text">LaTeX 使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IDE-安装配置"><span class="nav-number">3.</span> <span class="nav-text">IDE 安装配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#TexStudio"><span class="nav-number">3.1.</span> <span class="nav-text">TexStudio</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#VSCode"><span class="nav-number">3.2.</span> <span class="nav-text">VSCode</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LaTeX-使用过程中遇到的问题"><span class="nav-number">4.</span> <span class="nav-text">LaTeX 使用过程中遇到的问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#警告：Font-shape-OT1-cmss-m-n’-in-size-lt-4-gt-not-available"><span class="nav-number">4.1.</span> <span class="nav-text">警告：Font shape &#96;OT1&#x2F;cmss&#x2F;m&#x2F;n’ in size &lt;4&gt; not available</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#警告：引用未标号"><span class="nav-number">4.2.</span> <span class="nav-text">警告：引用未标号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#错误：There’s-no-line-here-to-end"><span class="nav-number">4.3.</span> <span class="nav-text">错误：There’s no line here to end</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#警告：Underfull-Overfull-hbox-message"><span class="nav-number">4.4.</span> <span class="nav-text">警告：Underfull(Overfull) \hbox message</span></a></li></ol></li></ol></div>
             
 
           </div>
