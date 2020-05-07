@@ -24,9 +24,9 @@ tags:
 
 ### TexStudio
 
-> 优点：安装方便，操作方便，免费， 跨平台
+- 优点：安装方便，操作方便，免费， 跨平台
 
-> 缺点：UI 丑陋，格式化不方便，中文支持差
+- 缺点：UI 丑陋，格式化不方便，中文支持差
 
 - 安装
 
@@ -46,9 +46,9 @@ tags:
 
 ### VSCode
 
-> 优点：安装简单，UI 漂亮，插件多，维护积极，开源免费，跨平台，中文友好
+- 优点：安装简单，UI 漂亮，插件多，维护积极，开源免费，跨平台，中文友好
 
-> 缺点：配置较为繁琐
+- 缺点：配置较为繁琐
 
 - 安装
 
@@ -62,7 +62,6 @@ tags:
 
   2. 安装 Latex Preview(文档预览，根据个人喜好选择)
   3. 设置中搜索 `latex workshop json` 加入如下内容( xelatex + bib 配置)
-
      ```
      // LaTeX
      // 保存自动编译
@@ -71,34 +70,34 @@ tags:
      "latex-workshop.message.error.show": false,
      "latex-workshop.message.warning.show": false,
      "latex-workshop.latex.tools": [
-         {
-             "name": "xelatex",
-             "command": "xelatex",
-             "args": [
-                 "-synctex=1",
-                 "-interaction=nonstopmode",
-                 "-file-line-error",
-                 "%DOCFILE%"
-             ]
-         },
-         {
-             "name": "bibtex",
-             "command": "bibtex",
-             "args": [
-                 "%DOCFILE%"
-             ]
-         }
+     {
+     "name": "xelatex",
+     "command": "xelatex",
+     "args": [
+     "-synctex=1",
+     "-interaction=nonstopmode",
+     "-file-line-error",
+     "%DOCFILE%"
+     ]
+     },
+     {
+     "name": "bibtex",
+     "command": "bibtex",
+     "args": [
+     "%DOCFILE%"
+     ]
+     }
      ],
      "latex-workshop.latex.recipes": [
-         {
-             "name": "xe->bib->xe->xe",
-             "tools": [
-                 "xelatex",
-                 "bibtex",
-                 "xelatex",
-                 "xelatex"
-             ]
-         },
+     {
+     "name": "xe->bib->xe->xe",
+     "tools": [
+     "xelatex",
+     "bibtex",
+     "xelatex",
+     "xelatex"
+     ]
+     },
      ],
      // 自动清理不需要的中间文件
      "latex-workshop.latex.autoClean.run": "onBuilt",
@@ -124,33 +123,3 @@ tags:
      "*.fdb_latexmk",
      ],
      ```
-
-## LaTeX 使用过程中遇到的问题
-
-### 警告：Font shape `OT1/cmss/m/n' in size <4> not available
-
-```
-\usepackage{lmodern}
-```
-
-或者
-
-```
-\usepackage{anyfontsize}
-```
-
-### 警告：引用未标号
-
-> bibtex 编译后再进行**两次** xelatex 编译
-
-### 错误：There's no line here to end
-
-错误的使用换行符
-
-> <https://www.overleaf.com/learn/latex/Errors/LaTeX_Error:_There%27s_no_line_here_to_end>
-
-### 警告：Underfull(Overfull) \hbox message
-
-> underfull 是说该处排版内容太稀疏了（badness 10000)是 TeX 衡量排版效果好不好的一个尺度
-
-> Overfull 则是说该处内容太多，超出了设定的印刷范围，这多数是由于系统无法找到合适的自动换行点造成的
