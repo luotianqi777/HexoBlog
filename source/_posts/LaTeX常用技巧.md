@@ -10,7 +10,10 @@ tags:
 ```
 % 代码环境
 \usepackage{listings}
+% 颜色
 \usepackage{xcolor}
+% 字体
+\usepackage{fontspec}
 % 代码格式设置
 \lstset{
     % 语言
@@ -22,7 +25,7 @@ tags:
     % 字符串显示空格
     showstringspaces=false,
     % 基础字体设置
-    basicstyle=\footnotesize,
+    basicstyle=\footnotesize\fontspec{Ubuntu Mono},
     % 行号风格
     numberstyle=\tiny,
     % 字符串风格
