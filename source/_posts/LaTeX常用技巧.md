@@ -19,6 +19,8 @@ tags:
     breaklines=true,
     % 行号
     numbers=left,
+    % 字符串显示空格
+    showstringspaces=false,
     % 基础字体设置
     basicstyle=\footnotesize,
     % 行号风格
