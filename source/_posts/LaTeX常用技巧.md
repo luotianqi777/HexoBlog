@@ -44,3 +44,22 @@ tags:
 % 引用代码
 \lstinputlisting{filepath}
 ```
+
+## 图表公式章节编号
+
+```
+% 重定义表编号格式
+\renewcommand{\thetable}{\thesection-\arabic{table}}
+% 重定义图编号格式
+\renewcommand{\thefigure}{\thesection-\arabic{figure}}
+% 重定义公式编号格式
+\renewcommand{\theequation}{\thesection.\arabic{equation}}
+\makeatletter
+% section计数器增加时重置table计数器
+\@addtoreset{table}{section}
+% section计数器增加时重置figure计数器
+\@addtoreset{figure}{section}
+% section计数器增加时重置equation计数器
+\@addtoreset{equation}{section}
+\makeatother
+```
