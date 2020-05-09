@@ -16,10 +16,6 @@ tags:
 
   `sudo apt install texlive`
 
-## LaTeX 使用
-
-[一份(不太)简短的 LaTeX 介绍](/download/lshort-zh-cn.pdf)
-
 ## IDE 安装配置
 
 ### TexStudio

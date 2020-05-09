@@ -121,7 +121,7 @@ tags:
 **新的 Hexo 版本应该不会出现该问题**
 
 例如下图
-![](/images/hexo添加next主题/1.png)
+![next主题分页显示错误](/images/hexo/next_error.png)
 
 Github 有相关 [issues](https://github.com/hexojs/hexo/issues/3794)
 

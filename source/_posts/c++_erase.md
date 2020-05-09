@@ -37,7 +37,7 @@ string::iterator it;
     }
 ```
 
-![错误结果](/images/c++_erase/1.png)
+![错误结果](/images/c++/erase_error.png)
 
 结果出错并且返回异常  
 查资料得知 erase 的返回值为被删除迭代器的下一个迭代器  
@@ -53,6 +53,6 @@ string::iterator it;
     }
 ```
 
-![正确结果](/images/c++_erase/2.png)
+![正确结果](/images/c++/erase_right.png)
 
 结果无异常

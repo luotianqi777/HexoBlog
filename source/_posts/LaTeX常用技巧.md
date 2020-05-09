@@ -5,6 +5,10 @@ tags:
   - LaTeX
 ---
 
+## 入门教程
+
+[一份(不太)简短的 LaTeX 介绍](/download/lshort-zh-cn.pdf)
+
 ## 插入代码
 
 ```
@@ -78,3 +82,45 @@ tags:
     \noindent\mbox{}\hfill{\bfseries 摘要}\hfill\mbox{}\par
     \vskip 2.5ex}{\par\vskip 2.5ex}
 ```
+
+## 绘制流程图
+
+```
+% 引入tikz包
+\usepackage{tikz}
+% 加入形状箭头
+\usetikzlibrary{shapes.geometric,arrows}
+% 定义各类节点
+\tikzstyle{startstop} = [rectangle,rounded corners, minimum width=1cm,minimum height=1cm,text centered, draw=black,fill=red!30]
+\tikzstyle{io} = [trapezium, trapezium left angle = 70,trapezium right angle=110,minimum width=1cm,minimum height=1cm,text centered,draw=black,fill=blue!30]
+\tikzstyle{process} = [rectangle,minimum width=1cm,minimum height=1cm,text centered,text width =3cm,draw=black,fill=orange!30]
+\tikzstyle{decision} = [diamond,minimum width=1cm,minimum height=1cm,text centered,draw=black,fill=green!30]
+\tikzstyle{arrow} = [thick,->,>=stealth]
+
+% 绘制
+\begin{figure}[H]
+    \centering
+    % 开始tikzpicture绘制环境
+    % node distance为节点间默认距离
+    \begin{tikzpicture}[node distance=2cm]
+        % 定义各个节点及相对(或绝对)位置
+        \node[startstop](S){S};
+        \node[startstop,right of=S](E){E};
+        \node[startstop,right of=E](I){I};
+        \node[startstop,right of=I](D){D};
+        \node[startstop,below of=I](R){R};
+        % 开始连线
+        \draw[arrow](S)--node[above]{$S\to E$}(E);
+        \draw[arrow](E)--node[above]{$E\to I$}(I);
+        \draw[arrow](I)--node[above]{}(D);
+        % out, in 为绘制曲线的角度， 详见LaTeX教程
+        \draw[arrow,out=-90,in=180](E) to node[left]{$E\to R$}(R);
+        \draw[arrow,out=-120,in=120](I) to node[left]{$I\to R$}(R);
+        \draw[arrow,out=60,in=-60](R) to node[right]{$R\to I$}(I);
+    \end{tikzpicture}
+    \caption{$SEIRD$模型流程图}
+\end{figure}
+```
+
+效果如下
+![SEIRD模型流程图](/images/LaTeX/SEIRD.png)

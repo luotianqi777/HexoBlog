@@ -36,6 +36,6 @@ int main() {
 }
 ```
 
-![](/images/c++_split_getline/1.png)
+![](/images/c++/split_getline.png)
 
 简单方便快速。
