@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="填坑日记">
 <meta property="og:description" content="插入代码1234567891011121314151617181920212223242526272829303132333435% 代码环境\usepackage&amp;#123;listings&amp;#125;% 颜色\usepackage&amp;#123;xcolor&amp;#125;% 字体\usepackage&amp;#123;fontspec&amp;#125;% 代码格式设置\lstset&amp;#123;    % 语言">
 <meta property="article:published_time" content="2020-05-07T08:50:41.000Z">
-<meta property="article:modified_time" content="2020-05-08T03:04:12.751Z">
+<meta property="article:modified_time" content="2020-05-09T00:44:52.235Z">
 <meta property="article:author" content="骆天奇">
 <meta property="article:tag" content="LaTeX">
 <meta name="twitter:card" content="summary">
@@ -303,6 +303,8 @@
 
 <h2 id="图表公式章节编号"><a href="#图表公式章节编号" class="headerlink" title="图表公式章节编号"></a>图表公式章节编号</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">% 重定义表编号格式</span><br><span class="line">\renewcommand&#123;\thetable&#125;&#123;\thesection-\arabic&#123;table&#125;&#125;</span><br><span class="line">% 重定义图编号格式</span><br><span class="line">\renewcommand&#123;\thefigure&#125;&#123;\thesection-\arabic&#123;figure&#125;&#125;</span><br><span class="line">% 重定义公式编号格式</span><br><span class="line">\renewcommand&#123;\theequation&#125;&#123;\thesection.\arabic&#123;equation&#125;&#125;</span><br><span class="line">\makeatletter</span><br><span class="line">% section计数器增加时重置table计数器</span><br><span class="line">\@addtoreset&#123;table&#125;&#123;section&#125;</span><br><span class="line">% section计数器增加时重置figure计数器</span><br><span class="line">\@addtoreset&#123;figure&#125;&#123;section&#125;</span><br><span class="line">% section计数器增加时重置equation计数器</span><br><span class="line">\@addtoreset&#123;equation&#125;&#123;section&#125;</span><br><span class="line">\makeatother</span><br></pre></td></tr></table></figure>
 
+<h2 id="中英文摘要"><a href="#中英文摘要" class="headerlink" title="中英文摘要"></a>中英文摘要</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">% 英文摘要</span><br><span class="line">\newenvironment&#123;enabstract&#125;&#123;</span><br><span class="line">    \par\small</span><br><span class="line">    \noindent\mbox&#123;&#125;\hfill&#123;\bfseries Abstract&#125;\hfill\mbox&#123;&#125;\par</span><br><span class="line">    \vskip 2.5ex&#125;&#123;\par\vskip 2.5ex&#125;</span><br><span class="line">% 中文摘要</span><br><span class="line">\newenvironment&#123;cnabstract&#125;&#123;</span><br><span class="line">    \par\small</span><br><span class="line">    \noindent\mbox&#123;&#125;\hfill&#123;\bfseries 摘要&#125;\hfill\mbox&#123;&#125;\par</span><br><span class="line">    \vskip 2.5ex&#125;&#123;\par\vskip 2.5ex&#125;</span><br></pre></td></tr></table></figure>
+
       
     </div>
     
@@ -487,7 +489,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#插入代码"><span class="nav-number">1.</span> <span class="nav-text">插入代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#图表公式章节编号"><span class="nav-number">2.</span> <span class="nav-text">图表公式章节编号</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#插入代码"><span class="nav-number">1.</span> <span class="nav-text">插入代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#图表公式章节编号"><span class="nav-number">2.</span> <span class="nav-text">图表公式章节编号</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#中英文摘要"><span class="nav-number">3.</span> <span class="nav-text">中英文摘要</span></a></li></ol></div>
             
 
           </div>

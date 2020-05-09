@@ -63,3 +63,18 @@ tags:
 \@addtoreset{equation}{section}
 \makeatother
 ```
+
+## 中英文摘要
+
+```
+% 英文摘要
+\newenvironment{enabstract}{
+    \par\small
+    \noindent\mbox{}\hfill{\bfseries Abstract}\hfill\mbox{}\par
+    \vskip 2.5ex}{\par\vskip 2.5ex}
+% 中文摘要
+\newenvironment{cnabstract}{
+    \par\small
+    \noindent\mbox{}\hfill{\bfseries 摘要}\hfill\mbox{}\par
+    \vskip 2.5ex}{\par\vskip 2.5ex}
+```
