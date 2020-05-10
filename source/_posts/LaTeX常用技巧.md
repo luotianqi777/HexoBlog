@@ -29,7 +29,7 @@ tags:
     % 字符串显示空格
     showstringspaces=false,
     % 基础字体设置
-    basicstyle=\footnotesize\fontspec{Ubuntu Mono},
+    basicstyle=\small\fontspec{Monaco},
     % 行号风格
     numberstyle=\tiny,
     % 字符串风格
