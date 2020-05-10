@@ -85,14 +85,14 @@
 <meta property="og:url" content="http://yoursite.com/2019/07/12/c++_erase/index.html">
 <meta property="og:site_name" content="填坑日记">
 <meta property="og:description" content="先看一段正常的代码 12345678910111213#include &lt;iostream&gt;#include &lt;string&gt;using namespace std;int main() &amp;#123;    string str &#x3D; &quot;123456789&quot;;    str.erase(str.begin() + 2, str.end() - 2">
-<meta property="og:image" content="http://yoursite.com/images/c++_erase/1.png">
-<meta property="og:image" content="http://yoursite.com/images/c++_erase/2.png">
+<meta property="og:image" content="http://yoursite.com/images/c++/erase_error.png">
+<meta property="og:image" content="http://yoursite.com/images/c++/erase_right.png">
 <meta property="article:published_time" content="2019-07-12T13:23:43.000Z">
-<meta property="article:modified_time" content="2020-04-11T06:22:36.026Z">
+<meta property="article:modified_time" content="2020-05-09T13:41:52.164Z">
 <meta property="article:author" content="骆天奇">
 <meta property="article:tag" content="C++">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://yoursite.com/images/c++_erase/1.png">
+<meta name="twitter:image" content="http://yoursite.com/images/c++/erase_error.png">
 
 
 
@@ -308,11 +308,11 @@
 <p>移除中间的一段字符<br>很好的发挥了作用<br>然后改了一下 希望依次删除字符串中的元素</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">string::iterator it;</span><br><span class="line">    &#x2F;&#x2F; 错误写法</span><br><span class="line">    for (it &#x3D; str.begin(); it !&#x3D; str.end(); it++)</span><br><span class="line">    &#123;</span><br><span class="line">        cout &lt;&lt; *it &lt;&lt; &quot; str: &quot; &lt;&lt; str &lt;&lt; endl;</span><br><span class="line">        str.erase(it);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 
-<p><img src="/images/c++_erase/1.png" alt="错误结果"></p>
+<p><img src="/images/c++/erase_error.png" alt="错误结果"></p>
 <p>结果出错并且返回异常<br>查资料得知 erase 的返回值为被删除迭代器的下一个迭代器<br>修改程序</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 正确写法</span><br><span class="line">    for (it &#x3D; str.begin(); it !&#x3D; str.end(); )   &#x2F;&#x2F; 注意这里去掉了it++</span><br><span class="line">    &#123;</span><br><span class="line">        cout &lt;&lt; *it &lt;&lt; &quot; str: &quot; &lt;&lt; str &lt;&lt; endl;</span><br><span class="line">        it &#x3D; str.erase(it);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 
-<p><img src="/images/c++_erase/2.png" alt="正确结果"></p>
+<p><img src="/images/c++/erase_right.png" alt="正确结果"></p>
 <p>结果无异常</p>
 
       
@@ -428,7 +428,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-count">19</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
