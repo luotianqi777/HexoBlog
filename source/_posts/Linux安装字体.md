@@ -1,5 +1,5 @@
 ---
-title: Linux安装MS字体
+title: Linux安装字体
 date: 2020-05-10 22:49:22
 tags:
   - Linux
@@ -21,3 +21,9 @@ Linux 系统并没有自带这些字体。
 安装完成后更新字体缓存：
 
 `sudo fc-cache -f -v`
+
+## 安装 Monaco 字体
+
+多数人都会喜欢 Mac 的 Monaco 字体吧
+
+[Monaco 下载](/download/Monaco.zip)
