@@ -26,10 +26,4 @@ Linux 系统并没有自带这些字体。
 
 多数人都会喜欢 Mac 的 Monaco 字体吧
 
-可以下载安装脚本
-
-`git clone git@github.com:cstrap/monaco-font.git`
-
-或者直接下载
-
 [Monaco 下载](/download/Monaco.zip)
