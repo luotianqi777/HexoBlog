@@ -25,10 +25,6 @@ Python 支持
 
 写 LaTeX 就用它
 
-## LaTeX Preview
-
-预览 LaTeX 生成文档
-
 ## Excel Viewer
 
 查看表格
