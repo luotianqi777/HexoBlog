@@ -68,40 +68,67 @@ tags:
      "latex-workshop.message.error.show": false,
      "latex-workshop.message.warning.show": false,
      "latex-workshop.latex.tools": [
-        {
-            "name": "xelatex",
-            "command": "xelatex",
-            "args": [
-                "-synctex=1",
-                "-interaction=nonstopmode",
-                "-file-line-error",
-                "%DOCFILE%"
-            ]
-        },
-        {
-            "name": "bibtex",
-            "command": "bibtex",
-            "args": [
-                "%DOCFILE%"
-            ]
-        }
+      {
+          // 编译工具和命令
+          "name": "xelatex",
+          "command": "xelatex",
+          "args": [
+              "-synctex=1",
+              "-interaction=nonstopmode",
+              "-file-line-error",
+              "-pdf",
+              "%DOCFILE%"
+          ]
+      },
+      {
+          "name": "pdflatex",
+          "command": "pdflatex",
+          "args": [
+              "-synctex=1",
+              "-interaction=nonstopmode",
+              "-file-line-error",
+              "%DOCFILE%"
+          ]
+      },
+      {
+          "name": "bibtex",
+          "command": "bibtex",
+          "args": [
+              "%DOCFILE%"
+          ]
+      }
      ],
-     "latex-workshop.latex.recipes": [
-        {
-            "name": "xe",
-            "tools": [
-                "xelatex",
-            ]
-        },
-        {
-            "name": "xe->bib->xe->xe",
-            "tools": [
-                "xelatex",
-                "bibtex",
-                "xelatex",
-                "xelatex"
-            ]
-        }
+       "latex-workshop.latex.recipes": [
+      {
+          "name": "xelatex",
+          "tools": [
+              "xelatex"
+          ],
+      },
+      {
+          "name": "pdflatex",
+          "tools": [
+              "pdflatex"
+          ]
+      },
+      {
+          "name": "xe->bib->xe->xe",
+          "tools": [
+              "xelatex",
+              "bibtex",
+              "xelatex",
+              "xelatex"
+          ]
+      },
+      {
+          "name": "pdf->bib->pdf->pdf",
+          "tools": [
+              "pdflatex",
+              "bibtex",
+              "pdflatex",
+              "pdflatex"
+          ]
+      }
      ],
      "latex-workshop.latex.autoClean.run": "onBuilt", //注意结尾是 t 不是 d
      "latex-workshop.latex.clean.fileTypes": [
