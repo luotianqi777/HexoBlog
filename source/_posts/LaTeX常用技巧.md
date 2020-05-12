@@ -124,3 +124,14 @@ tags:
 
 效果如下
 ![SEIRD模型流程图](/images/LaTeX/SEIRD.png)
+
+## 设置章节格式
+
+```
+% 章节格式
+\usepackage{titlesec}
+% 设置章节格式
+\titleformat{\section}{\centering\heiti\zihao{-3}}{第\arabic{section}章}{1em}{}
+\titleformat*{\subsection}{\heiti\zihao{4}}
+\titleformat*{\subsubsection}{\heiti\zihao{-4}}
+```
