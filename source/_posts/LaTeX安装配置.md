@@ -14,7 +14,9 @@ tags:
 
 - Linux
 
-  `sudo apt install texlive`
+  [官网](http://www.tug.org/texlive/) 可以下载，推荐 `apt` 安装
+
+  `sudo apt install texlive-full`
 
 ## IDE 安装配置
 
@@ -32,7 +34,7 @@ tags:
 
   - Linux
 
-    `sudo apt install studio`
+    `sudo apt install texstudio`
 
 - 配置
 
