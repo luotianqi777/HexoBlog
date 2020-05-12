@@ -68,56 +68,61 @@ tags:
      "latex-workshop.message.error.show": false,
      "latex-workshop.message.warning.show": false,
      "latex-workshop.latex.tools": [
-     {
-     "name": "xelatex",
-     "command": "xelatex",
-     "args": [
-     "-synctex=1",
-     "-interaction=nonstopmode",
-     "-file-line-error",
-     "%DOCFILE%"
-     ]
-     },
-     {
-     "name": "bibtex",
-     "command": "bibtex",
-     "args": [
-     "%DOCFILE%"
-     ]
-     }
+        {
+            "name": "xelatex",
+            "command": "xelatex",
+            "args": [
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "%DOCFILE%"
+            ]
+        },
+        {
+            "name": "bibtex",
+            "command": "bibtex",
+            "args": [
+                "%DOCFILE%"
+            ]
+        }
      ],
      "latex-workshop.latex.recipes": [
-     {
-     "name": "xe->bib->xe->xe",
-     "tools": [
-     "xelatex",
-     "bibtex",
-     "xelatex",
-     "xelatex"
-     ]
-     },
+        {
+            "name": "xe",
+            "tools": [
+                "xelatex",
+            ]
+        },
+        {
+            "name": "xe->bib->xe->xe",
+            "tools": [
+                "xelatex",
+                "bibtex",
+                "xelatex",
+                "xelatex"
+            ]
+        }
      ],
-     // 自动清理不需要的中间文件
-     "latex-workshop.latex.autoClean.run": "onBuilt",
+     "latex-workshop.latex.autoClean.run": "onBuilt", //注意结尾是 t 不是 d
      "latex-workshop.latex.clean.fileTypes": [
-     "*.aux",
-     "*.bbl",
-     "*.blg",
-     "*.idx",
-     "*.ind",
-     "*.lof",
-     "*.lot",
-     "*.out",
-     "*.toc",
-     "*.acn",
-     "*.acr",
-     "*.alg",
-     "*.glg",
-     "*.glo",
-     "*.gls",
-     "*.ist",
-     "*.fls",
-     "*.log",
-     "*.fdb_latexmk",
+        "*.aux",
+        "*.bbl",
+        "*.blg",
+        "*.idx",
+        "*.ind",
+        "*.lof",
+        "*.lot",
+        "*.out",
+        "*.toc",
+        "*.acn",
+        "*.acr",
+        "*.alg",
+        "*.glg",
+        "*.glo",
+        "*.gls",
+        "*.ist",
+        "*.fls",
+        "*.log",
+        "*.fdb_latexmk",
      ],
      ```
