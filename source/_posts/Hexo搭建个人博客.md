@@ -6,17 +6,6 @@ tags:
   - Hexo
 ---
 
-## 安装 git
-
-- 安装 git
-
-  `sudo apt install git-core`
-
-- 第一次使用要先设置 git 的用户名和邮箱
-
-  `git config --global user.name 'your_name'`  
-  `git config --global user.email 'your_email@example.com'`
-
 ## 安装 nodejs, npm
 
 - 建议通过[官网](https://nodejs.org/en/)安装
@@ -25,27 +14,11 @@ tags:
 
 - 使用`ln -s [src] [obj]`将 nodejs 和 npm 软链接到`/usr/local/bin/`下
 
-## 注册 github 账户并创建仓库
+## 创建 Github 仓库
 
-- 注册 github 账户
+- 见另一篇博客 **Github 添加 SSH Key**
 
-- 创建名为*user_name*.github.io 的 public 仓库
-
-## 添加 SSH 公匙
-
-- 创建 SSH key
-
-  `ssh-keygen -C "your_email@example.com"`
-
-  接下来几次询问密码  
-  建议连续回车  
-  默认将 key 存到用户文件下`~/.ssh/`中
-
-- 将`~/.ssh/id_rsa.pub`中的内容粘贴到 github 的 SSH key 中
-
-- 可以通过下指令测试链接
-
-  `ssh -T git@github.com`
+- 在 Github 中创建名为*user_name*.github.io 的 public 仓库
 
 ## 安装 hexo
 
