@@ -10,7 +10,7 @@ tags:
 
 - Windows
 
-  [官网](http://www.tug.org/texlive/) 下载安装映像
+  [官网](http://www.tug.org/texlive/) 下载安装
 
 - Linux
 
