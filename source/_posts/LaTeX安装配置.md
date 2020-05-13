@@ -62,6 +62,8 @@ tags:
   3. 设置中搜索 `latex workshop json` 加入如下内容( xelatex + bib 配置)
      ```
      // LaTeX
+     // 从tab打开pdf预览
+     "latex-workshop.view.pdf.viewer": "tab"
      // 保存自动编译
      // "latex-workshop.latex.autoBuild.run": "never",
      // 不显示警告(错误)气泡
