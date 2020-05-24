@@ -37,6 +37,9 @@ tags:
 `FLUSH PRIVILEGES;`
 
 ### 启动MySQL只能通过sudo获取权限的问题
+> 警告：设置后vscode可能无法连接到数据库
+> 目前没有找到解决方案
+
 编辑`\etc\mysql\my.cnf`
 ```
 [mysqld]
