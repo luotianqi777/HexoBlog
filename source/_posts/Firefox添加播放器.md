@@ -1,5 +1,5 @@
 ---
-title: firefox添加视频播放器
+title: Firefox添加视频播放器
 date: 2020-05-23 12:37:44
 tags:
 - Linux
