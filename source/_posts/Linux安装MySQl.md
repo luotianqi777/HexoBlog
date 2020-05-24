@@ -35,3 +35,12 @@ tags:
 ### 刷新权限
 
 `FLUSH PRIVILEGES;`
+
+### 启动MySQL只能通过sudo获取权限的问题
+编辑`\etc\mysql\my.cnf`
+```
+[mysqld]
+skip-grant-tables
+```
+重启MySQL
+`service mysql start`

@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="填坑日记">
 <meta property="og:description" content="本文特指MySQL8安装MySQLsudo apt install mysql-server mysql-client 配置MySQL 通过管理员权限进入MySQL终端  修改密码安全等级 密码安全度(0,1,2)由低至高  set global validate_password.policy&#x3D;0; 添加用户CREATE user &#39;user&#39;@&#39;host&#39; ID">
 <meta property="article:published_time" content="2020-05-23T02:33:11.000Z">
-<meta property="article:modified_time" content="2020-05-23T04:19:45.284Z">
+<meta property="article:modified_time" content="2020-05-24T01:00:21.151Z">
 <meta property="article:author" content="骆天奇">
 <meta property="article:tag" content="Linux">
 <meta property="article:tag" content="MySQL">
@@ -312,6 +312,9 @@
 <h3 id="更改密码"><a href="#更改密码" class="headerlink" title="更改密码"></a>更改密码</h3><p><code>ALTER user &#39;user&#39;@&#39;host&#39; IDENTIFIED WITH mysql_native_password BY &#39;password&#39;;</code></p>
 <h3 id="添加所有权限"><a href="#添加所有权限" class="headerlink" title="添加所有权限"></a>添加所有权限</h3><p><code>GRANT ALL ON *.* TO &#39;user&#39;@&#39;host&#39; WITH GRANT OPTION;</code></p>
 <h3 id="刷新权限"><a href="#刷新权限" class="headerlink" title="刷新权限"></a>刷新权限</h3><p><code>FLUSH PRIVILEGES;</code></p>
+<h3 id="启动MySQL只能通过sudo获取权限的问题"><a href="#启动MySQL只能通过sudo获取权限的问题" class="headerlink" title="启动MySQL只能通过sudo获取权限的问题"></a>启动MySQL只能通过sudo获取权限的问题</h3><p>编辑<code>\etc\mysql\my.cnf</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[mysqld]</span><br><span class="line">skip-grant-tables</span><br></pre></td></tr></table></figure>
+<p>重启MySQL<br><code>service mysql start</code></p>
 
       
     </div>
@@ -511,7 +514,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#本文特指MySQL8"><span class="nav-number">1.</span> <span class="nav-text">本文特指MySQL8</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装MySQL"><span class="nav-number">2.</span> <span class="nav-text">安装MySQL</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置MySQL"><span class="nav-number">3.</span> <span class="nav-text">配置MySQL</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#修改密码安全等级"><span class="nav-number">3.1.</span> <span class="nav-text">修改密码安全等级</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加用户"><span class="nav-number">3.2.</span> <span class="nav-text">添加用户</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#更改密码"><span class="nav-number">3.3.</span> <span class="nav-text">更改密码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加所有权限"><span class="nav-number">3.4.</span> <span class="nav-text">添加所有权限</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#刷新权限"><span class="nav-number">3.5.</span> <span class="nav-text">刷新权限</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#本文特指MySQL8"><span class="nav-number">1.</span> <span class="nav-text">本文特指MySQL8</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装MySQL"><span class="nav-number">2.</span> <span class="nav-text">安装MySQL</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置MySQL"><span class="nav-number">3.</span> <span class="nav-text">配置MySQL</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#修改密码安全等级"><span class="nav-number">3.1.</span> <span class="nav-text">修改密码安全等级</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加用户"><span class="nav-number">3.2.</span> <span class="nav-text">添加用户</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#更改密码"><span class="nav-number">3.3.</span> <span class="nav-text">更改密码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加所有权限"><span class="nav-number">3.4.</span> <span class="nav-text">添加所有权限</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#刷新权限"><span class="nav-number">3.5.</span> <span class="nav-text">刷新权限</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#启动MySQL只能通过sudo获取权限的问题"><span class="nav-number">3.6.</span> <span class="nav-text">启动MySQL只能通过sudo获取权限的问题</span></a></li></ol></li></ol></div>
             
 
           </div>
