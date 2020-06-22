@@ -14,7 +14,7 @@ tags:
 
 ## 将Tomcat解压到一个位置
 ## 配置Eclipse
-- `Window`
+- Window
 - Preferences
 - Server
 - Runtime Environment
