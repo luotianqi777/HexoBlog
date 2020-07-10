@@ -121,3 +121,7 @@ tags:
 
 - 下载[android 客户端](https://github.com/shadowsocksr-backup/shadowsocksr-android/releases)
 - 通过 ssr 链接或 ssr 二维码进行配置
+
+## 代理白名单
+
+`https://github.com/gfwlist/gfwlist/blob/master/gfwlist.txt`
