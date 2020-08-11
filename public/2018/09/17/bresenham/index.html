@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="C++,Computer Graphics," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="在实验课上用自己的算法画直线被 diss 效率低花了半天时间看了下 Bresenham 算法真 🐮🍺总结一下其中的精妙之处Bresebham 直线生成算法的基本原理是，每次在最大位移方向上走一步，而另一个方向是走步还是不走步取决于误差项的判别。声明 k 为斜率在 0≤k&lt;1 的情况下，假设当前点是 P($x_1$,$y_1$)，则下一个点在 $P_u$($x_1$+1,$y_1$+1)与">
+<meta property="og:type" content="article">
+<meta property="og:title" content="bresenham算法">
+<meta property="og:url" content="http://yoursite.com/2018/09/17/bresenham/index.html">
+<meta property="og:site_name" content="填坑日记">
+<meta property="og:description" content="在实验课上用自己的算法画直线被 diss 效率低花了半天时间看了下 Bresenham 算法真 🐮🍺总结一下其中的精妙之处Bresebham 直线生成算法的基本原理是，每次在最大位移方向上走一步，而另一个方向是走步还是不走步取决于误差项的判别。声明 k 为斜率在 0≤k&lt;1 的情况下，假设当前点是 P($x_1$,$y_1$)，则下一个点在 $P_u$($x_1$+1,$y_1$+1)与">
+<meta property="article:published_time" content="2018-09-17T14:16:44.000Z">
+<meta property="article:modified_time" content="2020-04-11T06:22:40.902Z">
+<meta property="article:author" content="骆天奇">
+<meta property="article:tag" content="C++">
+<meta property="article:tag" content="Computer Graphics">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/09/17/bresenham/"/>
+
+
+
+
+
+  <title>bresenham算法 | 填坑日记</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">填坑日记</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/17/bresenham/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="骆天奇">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="填坑日记">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">bresenham算法</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-17T22:16:44+08:00">
+                2018-09-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>在实验课上用自己的算法画直线被 diss 效率低<br>花了半天时间看了下 Bresenham 算法真 🐮🍺<br>总结一下其中的精妙之处<br>Bresebham 直线生成算法的基本原理是，每次在最大位移方向上走一步，而另一个方向是走步还是不走步取决于误差项的判别。<br>声明 k 为斜率<br>在 0≤k&lt;1 的情况下，假设当前点是 P($x_1$,$y_1$)，则下一个点在 $P_u$($x_1$+1,$y_1$+1)与 $P_d$($x_1$+1,$y_1$)中选一。<br>以 M 表示 $P_u$ 与 $P_d$ 的中点，即 M($x_1$+1,$y_1$+0.5)。设 Q 是理想直线与 x=$x_i$+1 的交点；<br>显然，若 M 在 Q 的下方，则 Pu($x_1$+1,$y_1$+1)离直线较近，应取为下一个像素；否则应取 $P_d$($x_1$+1,$y_1$)。<br>理解并不难 主要在于实现<br>依据该算法的原理基本能够实现<br>窝先试着自己写了一会<br>如果要实现各个方向的二维直线绘制<br>需要考虑多种情况 写出来很不美观<br>教材上给出了更好的解决方案：<br>同样以 0≤k&lt;1 为例<br>每次选取下个点时理想直线的 y 坐标都步进 k 个单位长度<br>累加值即为误差项 $d_i$<br>当 $d_i$ 大于 0.5 时选取 Pu 否则选取 $P_d$ 并使 $d_i$-1<br>令 $e_i$=$d_i$-0.5<br>则 $e_i$&gt;0 时选取 Pu 否则选取 $P_d$<br>经过改进，算法的效率大幅提升<br>但其中在计算斜率与误差项时会用到小数和除法<br>并且下一步的选择只与误差项的符号有关<br>因此可以进一步改进：<br>可知 $e_i$ 的值由三种值组成：$e_i$=-1/2(初始值)+(n 个)y/x(步进值)-(m 个)1(调整值)…<br>同乘 2x 即得 2x<em>$e_i$=-x+(n 个)2</em>y-(m 个)2*x….<br>这样即可得到仅由整数构成的算法<br>以上仅为对 0≤k&lt;1 情况下的讨论<br>其余的情况类似<br>附一段杂乱无章的代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">point&lt;Type&gt; now_point &#x3D; start;</span><br><span class="line">  point&lt;Type&gt; e_step, point_step;</span><br><span class="line">  e_step.x &#x3D; abs(step.x);</span><br><span class="line">  e_step.y &#x3D; abs(step.y);</span><br><span class="line">  glBegin(GL_POINTS);</span><br><span class="line">  if (step.x &#x3D;&#x3D; 0 &amp;&amp; step.y &#x3D;&#x3D; 0) &#x2F;&#x2F;No Step</span><br><span class="line">    return;</span><br><span class="line">  point_step.x &#x3D; (step.x &#x3D;&#x3D; 0) ? 1 : step.x &#x2F; e_step.x;</span><br><span class="line">  point_step.y &#x3D; (step.y &#x3D;&#x3D; 0) ? 1 : step.y &#x2F; e_step.y;</span><br><span class="line">  if (step.x &#x3D;&#x3D; 0) &#123;   &#x2F;&#x2F; k is endless</span><br><span class="line">    do&#123;</span><br><span class="line">      glVertex2i(now_point.x, now_point.y);</span><br><span class="line">      now_point.y +&#x3D; point_step.y;</span><br><span class="line">    &#125; while (now_point.y !&#x3D; end.y);</span><br><span class="line">  &#125;</span><br><span class="line">  else if (step.y &#x3D;&#x3D; 0) &#123;   &#x2F;&#x2F;k is zero</span><br><span class="line">    do &#123;</span><br><span class="line">      glVertex2i(now_point.x, now_point.y);</span><br><span class="line">      now_point.x +&#x3D; point_step.x;</span><br><span class="line">    &#125; while (now_point.x !&#x3D; end.x);</span><br><span class="line">  &#125;</span><br><span class="line">  else if (abs(step.y &#x2F; step.x) &#x3D;&#x3D; 0) &#123;   &#x2F;&#x2F; |k| &lt; 1</span><br><span class="line">    Type e &#x3D; -e_step.x;</span><br><span class="line">    do &#123;</span><br><span class="line">      glVertex2i(now_point.x, now_point.y);</span><br><span class="line">      e +&#x3D; 2 * e_step.y;</span><br><span class="line">      now_point.x +&#x3D; point_step.x;</span><br><span class="line">      if (e &gt; 0) &#123;</span><br><span class="line">        now_point.y +&#x3D; point_step.y;</span><br><span class="line">        e -&#x3D; 2 * e_step.x;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125; while (now_point.x !&#x3D; end.x);</span><br><span class="line">  &#125;</span><br><span class="line">  else &#123;    &#x2F;&#x2F; |k| &gt;&#x3D; 1</span><br><span class="line">    Type e &#x3D; -e_step.y;</span><br><span class="line">    do &#123;</span><br><span class="line">      glVertex2i(now_point.x, now_point.y);</span><br><span class="line">      e +&#x3D; 2 * e_step.x;</span><br><span class="line">      now_point.y +&#x3D; point_step.y;</span><br><span class="line">      if (e &gt; 0) &#123;</span><br><span class="line">        now_point.x +&#x3D; point_step.x;</span><br><span class="line">        e -&#x3D; 2 * e_step.y;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125; while (now_point.y !&#x3D; end.y);</span><br><span class="line">  &#125;</span><br><span class="line">  glEnd();</span><br><span class="line">  glFlush();</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/C/" rel="tag"># C++</a>
+          
+            <a href="/tags/Computer-Graphics/" rel="tag"># Computer Graphics</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/07/12/c++_erase/" rel="prev" title="c++ erase的注意事项">
+                c++ erase的注意事项 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.jpg"
+                alt="骆天奇" />
+            
+              <p class="site-author-name" itemprop="name">骆天奇</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">33</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">23</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/luotianqi777" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:luotianqi777@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://twitter.com/picpictick" target="_blank" title="Twitter">
+                      
+                        <i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.facebook.com/tianqi.luo.98" target="_blank" title="Facebook">
+                      
+                        <i class="fa fa-fw fa-facebook"></i>Facebook</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">骆天奇</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
